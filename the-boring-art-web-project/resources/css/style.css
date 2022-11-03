@@ -1,0 +1,322 @@
+html,
+body {
+  background-color: black;
+  min-height: 100%;
+}
+
+/*--------------------------------------------------------------
+# General
+--------------------------------------------------------------*/
+
+.full-screen {
+  min-height: 100%;
+  height: 100vh;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.col-12.col-lg-6 {
+  transition: all linear 0.5s;
+}
+
+@font-face {
+  font-family: "Avenir"; /*a name to be used later*/
+  src: url("/resources/fonts/avenir/AvenirLTStd-Black.otf"); /*URL to font*/
+}
+
+/*--------------------------------------------------------------
+# Loading
+--------------------------------------------------------------*/
+
+.loading-anim {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  background: black;
+}
+
+.outer-orbit {
+  position: absolute;
+  margin: auto;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 294px;
+  height: 294px;
+  border-radius: 100%;
+  -webkit-animation: spin-right 4s linear infinite;
+  animation: spin-right 4s linear infinite;
+}
+
+.loading-anim img {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -40%;
+  height: 15rem;
+  margin-left: auto;
+  margin-right: auto;
+  transform: rotate(45deg);
+}
+
+@keyframes spin-right {
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .outer-orbit {
+    width: 200px;
+    height: 200px;
+  }
+
+  .loading-anim img {
+    height: 8rem;
+  }
+}
+
+/*--------------------------------------------------------------
+# Nav Bar
+--------------------------------------------------------------*/
+
+nav {
+  background-color: #090015;
+  padding: 5% 2%;
+}
+
+.nav-link {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  color: grey !important;
+}
+
+.nav-link:hover {
+  color: white !important;
+}
+
+.navbar-brand {
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 700;
+  font-size: 2rem;
+  transition: transform 0.3s, font-size 0.2s;
+}
+
+.navbar-brand:hover {
+  transform: scale(1.1);
+}
+
+@media only screen and (max-width: 600px) {
+  .navbar-brand {
+    font-size: 1.3rem;
+  }
+}
+
+/*--------------------------------------------------------------
+# Top
+--------------------------------------------------------------*/
+
+.top {
+  background-size: contain;
+  background-color: #090015;
+  padding-top: 10%;
+}
+
+.top h1 {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 900;
+  font-size: 5rem;
+  text-transform: uppercase;
+  word-spacing: 100vw;
+  transition: font-size 0.2s, text-align 0.2s;
+}
+
+.top img {
+  max-width: 100%;
+  margin: auto 0;
+  animation: pulse 2s;
+  animation-iteration-count: 3;
+}
+
+.scroll-down {
+  position: relative;
+  width: 3rem;
+  height: 3rem;
+  left: 49%;
+  bottom: 0%;
+  transition: transform 0.2s;
+}
+
+.chevron {
+  position: absolute;
+  width: 3.5rem;
+  height: 1rem;
+  opacity: 0;
+  transform: scale3d(0.5, 0.5, 0.5);
+  animation: move 3s ease-out infinite;
+}
+
+.chevron:first-child {
+  animation: move 3s ease-out 1s infinite;
+}
+
+.chevron:nth-child(2) {
+  animation: move 3s ease-out 2s infinite;
+}
+
+.chevron:before,
+.chevron:after {
+  content: " ";
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 51%;
+  background: #fff;
+}
+
+.chevron:before {
+  left: 0;
+  transform: skew(0deg, 30deg);
+}
+
+.chevron:after {
+  right: 0;
+  width: 50%;
+  transform: skew(0deg, -30deg);
+}
+
+@keyframes move {
+  25% {
+    opacity: 1;
+  }
+  33% {
+    opacity: 1;
+    transform: translateY(3.75rem);
+  }
+  67% {
+    opacity: 1;
+    transform: translateY(5rem);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(6.8rem) scale3d(0.5, 0.5, 0.5);
+  }
+}
+
+@media only screen and (max-width: 992px) {
+  .top h1 {
+    font-size: 3rem;
+    text-align: center;
+  }
+
+  .scroll-down {
+    transform: scale(0.6);
+  }
+}
+
+/*--------------------------------------------------------------
+# Timeline page - Mars
+--------------------------------------------------------------*/
+
+.timeline-page {
+  padding-top: 5%;
+}
+
+.timeline-page h1 {
+  font-family: "Bebas Neue", cursive;
+  font-size: 3rem;
+  color: #f26226;
+  transition: font-size 0.2s, text-align 0.2s;
+}
+
+.timeline-page h1 span {
+  font-size: 1.5rem;
+}
+
+.timeline-page h2 {
+  font-family: "Bebas Neue", cursive;
+  font-size: 2.5rem;
+  color: white;
+  transition: font-size 0.2s, text-align 0.2s;
+}
+
+.timeline-page img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.timeline-page p {
+  padding-top: 5%;
+  color: grey;
+  font-family: "Avenir";
+}
+
+@media only screen and (max-width: 992px) {
+  /* .timeline-page img {
+    position: relative;
+    top: -50px; */
+}
+
+/*--------------------------------------------------------------
+# Timeline page - Mars
+--------------------------------------------------------------*/
+
+.aliens-timeline img {
+  animation: swing 5s linear infinite;
+}
+
+.bg-img {
+  background: url("../img/mars_bg.svg") no-repeat bottom;
+  background-color: #211b3e;
+  background-size: contain;
+}
+
+.bg-dark1 {
+  background: #090015 !important;
+}
+
+.bg-dark2 {
+  background: #000018 !important;
+}
+
+#particle {
+  overflow-x: hidden;
+}
+
+/*--------------------------------------------------------------
+# Carousel Top
+--------------------------------------------------------------*/
+
+.car-top {
+  min-height: 100vh;
+  padding-top: 35vh;
+}
+
+.car-top h1 {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 900;
+  font-size: 4.5rem;
+  text-transform: uppercase;
+  transition: font-size 0.2s, text-align 0.2s;
+  margin: auto 0;
+  color: orange;
+}
+
+.car-top .scroll-down {
+  position: relative;
+  width: 3rem;
+  height: 3rem;
+  left: 49%;
+  bottom: 0%;
+  transition: transform 0.2s;
+}
